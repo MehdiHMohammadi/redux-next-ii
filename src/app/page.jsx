@@ -7,16 +7,19 @@ export default function Home() {
       <nav>
         <ul>
           <li>
-            <Link href={"/about"}>About</Link>
+            <Link href={"/pizza"}>Pizza</Link>
           </li>
           <li>
-            <Link href={"/contact"}>Contant</Link>
+            <Link href={"/todo"}>Todo</Link>
           </li>
           <li>
             <Link href={"/shop"}>Shop</Link>
           </li>
           <li>
-            <Link href={"/shop/categoty"}>categoty</Link>
+            <Link href={"/shop/cat"}>cat</Link>
+          </li>
+          <li>
+            <Link href={"/category"}>category</Link>
           </li>
         </ul>
       </nav>

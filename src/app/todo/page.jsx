@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
-import { addTodo } from "../../redux/todosSlice";
+import { addTodo } from "../../redux/reducers/todosSlice";
 
 function Page() {
   const dispatch = useDispatch();

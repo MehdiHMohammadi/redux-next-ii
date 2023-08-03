@@ -14,8 +14,8 @@ export const pizzaSlice = createSlice({
       state.gluten = !state.gluten;
     },
     addTopping: (state, action) => {
-      // state.toppings = [...state.toppings, action.payload];
-      state.toppings.push(action.payload);
+      state.toppings = [...state.toppings, action.payload];
+      // state.toppings.push(action.payload);
     },
     addCounterRedux: (state, action) => {
       // state.counteer = [...state.counteer, action.payload]; Error...

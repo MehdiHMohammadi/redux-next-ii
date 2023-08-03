@@ -1,12 +1,14 @@
-// import { configureStore } from "@reduxjs/toolkit";
 import { configureStore } from "@reduxjs/toolkit";
-import pizzaReducer from "./pizzaSlice.js";
-import todosReducer from "./todosSlice.js";
+// import reducers from "./reducers/index.js";
+import todosReducer from "./reducers/todosSlice.js";
+import pizzaReducer from "./reducers/pizzaSlice.js";
+import categoryReducer from "./reducers/todosSlice.js";
 
 export const store = configureStore({
   reducer: {
     pizza: pizzaReducer,
     todos: todosReducer,
+    category: categoryReducer,
   },
 });
 

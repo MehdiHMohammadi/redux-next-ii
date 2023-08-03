@@ -8,7 +8,7 @@ import {
   toggleGluten,
   addTopping,
   addCounterRedux,
-} from "../../redux/pizzaSlice";
+} from "../../redux/reducers/pizzaSlice";
 
 function Page() {
   const [counteer, setCounteer] = useState(0);
