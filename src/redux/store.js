@@ -1,17 +1,26 @@
-import { configureStore } from "@reduxjs/toolkit";
-// import reducers from "./reducers/index.js";
-import todosReducer from "./reducers/todosSlice.js";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+
 import pizzaReducer from "./reducers/pizzaSlice.js";
+import todosReducer from "./reducers/todosSlice.js";
 import categoryReducer from "./reducers/categorySlice.js";
 
-export const store = configureStore({
-  reducer: {
-    pizza: pizzaReducer,
-    todos: todosReducer,
-    category: categoryReducer,
-  },
-  // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-  // devToolsEnhancerLogOnlyInProduction(),
+const rootReducer = combineReducers({
+  pizza: pizzaReducer,
+  todos: todosReducer,
+  category: categoryReducer,
 });
 
-export default store;
+const persistConfig = {
+  key: "root",
+  storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+export const store = configureStore({
+  reducer: persistedReducer,
+});
+
+export const persistor = persistStore(store);
