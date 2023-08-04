@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -9,17 +10,16 @@ import {
 } from "./../../redux/reducers/categorySlice";
 
 function Page() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const category = useSelector((state) => state.category.items);
-  console.log(category);
+  console.log("category = " + category[0].id);
+  const categooryAll = () => dispatch(categoryGetAll());
+  console.log("categooryAll =  " + categooryAll());
+  // console.log("category after categoryAll = " + category[0].id);
 
   return (
     <div className="h-screen flex justify-center items-center gap-2 flex-col">
-      <div className="flex flex-col">
-        {category.map((cat, index) => (
-          <div key={index}>{cat}</div>
-        ))}
-      </div>
+      <div className="flex flex-col"></div>
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-col text-center w-full mb-20">
@@ -52,72 +52,27 @@ function Page() {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td className="px-4 py-3">Start</td>
-                  <td className="px-4 py-3">5 Mb/s</td>
-                  <td className="px-4 py-3">15 GB</td>
-                  <td className="px-4 py-3 text-lg text-gray-300">Free</td>
-                  <td className="w-10 text-center">
-                    <button className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="border-t-2 border-gray-300 px-4 py-3">Pro</td>
-                  <td className="border-t-2 border-gray-300 px-4 py-3">
-                    25 Mb/s
-                  </td>
-                  <td className="border-t-2 border-gray-300 px-4 py-3">
-                    25 GB
-                  </td>
-                  <td className="border-t-2 border-gray-300 px-4 py-3 text-lg text-gray-300">
-                    $24
-                  </td>
-                  <td className="border-t-2 border-gray-300 w-10 text-center">
-                    <button className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="border-t-2 border-gray-300 px-4 py-3">
-                    Business
-                  </td>
-                  <td className="border-t-2 border-gray-300 px-4 py-3">
-                    36 Mb/s
-                  </td>
-                  <td className="border-t-2 border-gray-300 px-4 py-3">
-                    40 GB
-                  </td>
-                  <td className="border-t-2 border-gray-300 px-4 py-3 text-lg text-gray-300">
-                    $50
-                  </td>
-                  <td className="border-t-2 border-gray-300 w-10 text-center">
-                    <button className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="border-t-2 border-b-2 border-gray-300 px-4 py-3">
-                    Exclusive
-                  </td>
-                  <td className="border-t-2 border-b-2 border-gray-300 px-4 py-3">
-                    48 Mb/s
-                  </td>
-                  <td className="border-t-2 border-b-2 border-gray-300 px-4 py-3">
-                    120 GB
-                  </td>
-                  <td className="border-t-2 border-b-2 border-gray-300 px-4 py-3 text-lg text-gray-300">
-                    $72
-                  </td>
-                  <td className="border-t-2 border-b-2 border-gray-300 w-10 text-center">
-                    <button className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">
-                      Delete
-                    </button>
-                  </td>
-                </tr>
+                {category.map((cat, index) => (
+                  <tr key={index}>
+                    <td className="border-t-2 border-gray-300 px-4 py-3">
+                      {cat.plan}
+                    </td>
+                    <td className="border-t-2 border-gray-300 px-4 py-3">
+                      {cat.speed}
+                    </td>
+                    <td className="border-t-2 border-gray-300 px-4 py-3">
+                      {cat.storage}
+                    </td>
+                    <td className="border-t-2 border-gray-300 px-4 py-3 text-lg text-gray-300">
+                      {cat.price}
+                    </td>
+                    <td className="border-t-2 border-gray-300 w-10 text-center">
+                      <button className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
