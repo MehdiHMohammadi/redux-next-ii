@@ -44,6 +44,9 @@ dependencies:
   redux-devtools-extension:
     specifier: ^2.13.9
     version: 2.13.9(redux@4.2.1)
+  redux-persist:
+    specifier: ^6.0.0
+    version: 6.0.0(react@18.2.0)(redux@4.2.1)
   redux-thunk:
     specifier: ^2.4.2
     version: 2.4.2(redux@4.2.1)
@@ -2328,6 +2331,19 @@ packages:
     peerDependencies:
       redux: ^3.1.0 || ^4.0.0
     dependencies:
+      redux: 4.2.1
+    dev: false
+
+  /redux-persist@6.0.0(react@18.2.0)(redux@4.2.1):
+    resolution: {integrity: sha512-71LLMbUq2r02ng2We9S215LtPu3fY0KgaGE0k8WRgl6RkqxtGfl7HUozz1Dftwsb0D/5mZ8dwAaPbtnzfvbEwQ==}
+    peerDependencies:
+      react: '>=16'
+      redux: '>4.0.0'
+    peerDependenciesMeta:
+      react:
+        optional: true
+    dependencies:
+      react: 18.2.0
       redux: 4.2.1
     dev: false
 

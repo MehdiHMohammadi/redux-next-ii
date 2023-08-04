@@ -7,10 +7,12 @@ export default function Home() {
       <nav>
         <ul>
           <li>
-            <Link href={"/pizza"}>Pizza</Link>
+            <Link href={"/pizza"} as={`/pizza/?language=en`}>
+              Pizza
+            </Link>
           </li>
           <li>
-            <Link href={"/todo"}>Todo</Link>
+            <Link href="/todo">Todo</Link>
           </li>
           <li>
             <Link href={"/shop"}>Shop</Link>

@@ -10,6 +10,8 @@ export const store = configureStore({
     todos: todosReducer,
     category: categoryReducer,
   },
+  // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  // devToolsEnhancerLogOnlyInProduction(),
 });
 
 export default store;

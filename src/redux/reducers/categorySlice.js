@@ -27,9 +27,9 @@ export const categorySlice = createSlice({
       };
     },
     categoryAdd: (state, action) => {
-      state.items = { ...state, items: state.items.concat([action.payload]) };
-      // const newItem = action.payload; // اطلاعات آیتم جدید برای اضافه کردن
-      // state.items.push(newItem);
+      // state.items = { ...state, items: state.items.concat([action.payload]) };
+      const newItem = action.payload; // اطلاعات آیتم جدید برای اضافه کردن
+      state.items.push(newItem);
     },
     categoryRemove: (state, action) => {
       // state.items = {
