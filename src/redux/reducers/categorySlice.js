@@ -15,9 +15,10 @@ export const categorySlice = createSlice({
   name: "category",
   initialState,
   reducers: {
-    categoryGetAll: (state) => {
-      state.items = { ...state, items: state.items };
+    categoryGetAll: (state, action) => {
+      // state.items = { ...state, items: state.items };
       // state.items = state.items;
+      state.items = action.payload;
     },
     categoryGetById: (state, action) => {
       state.items = {
@@ -27,12 +28,17 @@ export const categorySlice = createSlice({
     },
     categoryAdd: (state, action) => {
       state.items = { ...state, items: state.items.concat([action.payload]) };
+      // const newItem = action.payload; // اطلاعات آیتم جدید برای اضافه کردن
+      // state.items.push(newItem);
     },
     categoryRemove: (state, action) => {
-      state.items = {
-        ...state,
-        items: state.items.filter((q) => q.id != action.payload),
-      };
+      // state.items = {
+      //   ...state,
+      //   items: state.items.filter((q) => q.id != action.payload),
+      // };
+      // delete state.entities[action.payload];
+      const itemId = action.payload; // شناسه آیتم برای حذف
+      state.items = state.items.filter((item) => item.id !== itemId);
     },
     categoryUpdate: (state, action) => {
       state.items = {
@@ -46,7 +52,7 @@ export const categorySlice = createSlice({
 export const {
   categoryGetAll,
   categoryGetById,
-  addcategoryAddStorge,
+  categoryAdd,
   categoryRemove,
   categoryUpdate,
 } = categorySlice.actions;
