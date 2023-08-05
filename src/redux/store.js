@@ -6,6 +6,7 @@ import pizzaReducer from "./reducers/pizzaSlice.js";
 import todosReducer from "./reducers/todosSlice.js";
 import categoryReducer from "./reducers/categorySlice.js";
 
+const a = 12;
 const rootReducer = combineReducers({
   pizza: pizzaReducer,
   todos: todosReducer,
