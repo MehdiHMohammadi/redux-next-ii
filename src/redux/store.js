@@ -1,18 +1,10 @@
-import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
-import pizzaReducer from "./reducers/pizzaSlice.js";
-import todosReducer from "./reducers/todosSlice.js";
-import categoryReducer from "./reducers/categorySlice.js";
+import RootReducer from "./reducers";
 
-const a = 12;
-const rootReducer = combineReducers({
-  pizza: pizzaReducer,
-  todos: todosReducer,
-  category: categoryReducer,
-});
-
+const rootReducer = RootReducer;
 const persistConfig = {
   key: "root",
   storage,
