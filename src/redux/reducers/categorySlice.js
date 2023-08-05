@@ -9,6 +9,7 @@ const initialState = {
     { id: 5, plan: "Vas", speed: "62 Mb/s", storage: "95 GB", price: "$86" },
   ],
   isLoading: true,
+  message: "",
 };
 
 export const categorySlice = createSlice({
