@@ -1,8 +1,9 @@
 import { configureStore, createAsyncThunk } from "@reduxjs/toolkit";
 import { persistStore, persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage";
+import { useDispatch } from "react-redux";
 import thunk from "redux-thunk";
 
+import storage from "redux-persist/lib/storage";
 import RootReducer from "./reducers";
 
 const rootReducer = RootReducer;
@@ -21,3 +22,4 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store);
+export const useAppDispatch = () => useDispatch();
