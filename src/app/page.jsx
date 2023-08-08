@@ -1,7 +1,7 @@
 // import Image from "next/image";
 import Link from "next/link";
 
-export default function Home() {
+const Home = () => {
   return (
     <main className="h-screen flex justify-center items-center gap-2 flex-col">
       <nav>
@@ -30,4 +30,6 @@ export default function Home() {
       </nav>
     </main>
   );
-}
+};
+
+export default Home;

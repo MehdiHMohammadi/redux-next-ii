@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Link from "next/link";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -10,7 +10,17 @@ import {
   addCounterRedux,
 } from "../../redux/reducers/pizzaSlice";
 
+import ThemeToggle from "./ThemeToggle";
+// import { useTheme } from "../../context/ThemeContext";
+
 function Page() {
+  const [themeValueState, setThemeValueState] = useState();
+  const themeValue = (themeValue) => {
+    setThemeValueState(themeValue);
+  };
+  // const { theme } = useTheme();
+  const theme = themeValueState;
+
   const [counteer, setCounteer] = useState(0);
   const decementHandler = () => setCounteer(counteer + 1);
 
@@ -31,7 +41,16 @@ function Page() {
   }
 
   return (
-    <div className="h-screen flex justify-center items-center gap-2 flex-col">
+    // <div className="h-screen flex justify-center items-center gap-2 flex-col">
+    <div
+      className={`${
+        theme == "dark" ? "bg-black" : "bg-green-950 "
+      } h-screen flex justify-center items-center gap-2 flex-col`}
+    >
+      {/* <themeContext.Provider value={theme}> */}
+      <h1>{themeValueState}</h1>
+      <h1>{theme}</h1>
+
       <h1>{counterRedux}</h1>
       <button
         onClick={decementHandler}
@@ -64,11 +83,21 @@ function Page() {
         >
           add Counteer
         </button>
+        <button
+          className="px-4 py-2 rounded-md text-4xl bg-slate-400 hover:bg-orange-300 hover:transition-opacity selection:translate-x-4 "
+          // onClick={handleSetTheme}
+        >
+          Theme
+        </button>
+        <ThemeToggle themProps={theme} themeValue={themeValue} />
+
+        {/* <ThemeSwitch /> */}
       </div>
       {/* ------------------------------ */}
       <h1>
         <Link href={"/"}>{`<-- Back`}</Link>
       </h1>
+      {/* </themeContext.Provider> */}
     </div>
   );
 }
